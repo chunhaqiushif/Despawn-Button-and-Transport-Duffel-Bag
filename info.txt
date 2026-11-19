@@ -1,0 +1,25 @@
+清除尸体按钮和传送遗物袋（C#）
+
+使用了C#脚本，依赖于“Lua For Barotrauma”
+由AI辅助生成代码，我负责调试，介意请勿使用
+
+除“清除尸体按钮”让尸体消失的功能外，补充了两个功能：
+1. 根据生成遗物袋时内部的ID卡的阵营情况，让同阵营、中立、敌军的遗物袋显示不同颜色的灯光（绿/黄/红）
+2. 如果生成后的10秒没有对其进行任何操作，则会在计时结束后传送至主潜艇的货物生成点
+3. 怪物死亡不会生成遗物袋，但是通过“清除尸体按钮”使尸体消失的情况下会生成一个遗物袋
+
+DLC更新后可能会进行一次适配更新（据说官方会支持C#脚本，会在此时进行调整）
+
+----------------------------------------------
+
+Despawn Button and Transport Duffel Bag (C#)
+
+Uses C# scripts and requires "Lua For Barotrauma" as a dependency.
+The code was generated with AI assistance and debugged by me. Please do not use this mod if that bothers you.
+
+In addition to the "Despawn Button" that removes corpses, the following features have been added:
+1. Faction-based Lighting: Duffel bags will emit different colored lights based on the faction of the ID card inside when generated (Green for allies, Yellow for neutrals, Red for enemies).
+2. Auto-Teleport: If no interaction occurs within 10 seconds after spawning, the duffel bag will automatically teleport to the main submarine's cargo spawnpoint once the timer ends.
+3. Monster Corpse Handling: Monsters will not spawn duffel bags upon death. However, removing their corpses via the "Despawn Button" will generate a duffel bag.
+
+An update to ensure compatibility may follow the DLC release (it is rumored that the developers will add support for C# scripting, and adjustments will be made at that time).

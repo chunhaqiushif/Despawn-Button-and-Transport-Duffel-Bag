@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <Items>
+    <Item name="Despawn Button" identifier="despawnbutton" category="Electrical"
+      tags="smallitem,button" cargocontaineridentifier="metalcrate" scale="0.5"
+      impactsoundtag="impact_metal_light" maxstacksize="1" isshootable="true">
+      <PreferredContainer primary="engcab" />
+      <Sprite texture="%ModDir%/Texture/Despawn Button.png" sourcerect="0,0,42,44" depth="0.55"
+        origin="0.5,0.5" />
+      <Deconstruct time="1">
+        <Item identifier="fpgacircuit" amount="1" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="1">
+        <RequiredItem identifier="fpgacircuit" />
+      </Fabricate>
+      <Body width="42" height="44" density="20" />
+      <Holdable selectkey="Select" pickkey="Select" slots="Any,RightHand,LeftHand"
+        msg="ItemMsgDetachWrench" aimpos="35,-20" handle1="0,0" aimable="true">
+        <StatusEffect type="OnUse" target="This">
+          <sound file="Content/Items/Button/Button.ogg" range="500" volume="2" />
+          <LuaHook name="despawnpulse" />
+        </StatusEffect>
+      </Holdable>
+    </Item>
+
+    <Item name="Respawn Point" identifier="respawn_point" nameidentifier="respawn_point"
+      descriptionidentifier="respawn_point" scale="0.25" category="Misc"
+      spritecolor="255,255,255,150" tags=""
+      allowasextracargo="false" cargocontaineridentifier="metalcrate">
+      <Sprite texture="%ModDir%/Texture/icons.png" sourcerect="78,76,204,218" depth="0.5"
+        origin="0.5,0.5" color="120,255,200,170" />
+      <StaticBody width="8" height="8" />
+    </Item>
+  </Items>
+</Override>

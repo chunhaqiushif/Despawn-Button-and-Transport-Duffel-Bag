@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Despawn Button and Transport Duffel Bag (C#)" modversion="1.1.0" corepackage="False" steamworkshopid="3840821129" gameversion="1.13.5.0">
+  <Item file="%ModDir%/items.xml" />
+  <Item file="%ModDir%/relicbag.xml" />
+  <Particles file="%ModDir%/ParticlePrefabs.xml" />
+  <Text file="%ModDir%/Text/English.xml" />
+  <Text file="%ModDir%/Text/SimplifiedChinese.xml" />
+</contentpackage>

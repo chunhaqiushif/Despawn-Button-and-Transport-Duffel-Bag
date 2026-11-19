@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    遗物袋（Duffel Bag）
+    - 前半部分是「遺物袋補丁」的修改：容量 20，可装几乎所有小/中型物品、工具、武器、弹药、潜水装具等，
+      并排除 despawncontainer（袋子不能套袋子）
+    - Holdable 里新增的 OnUse 状态效果只用来播放传送特效，由 C# 侧调用
+      item.ApplyStatusEffects(ActionType.OnUse, ...) 触发；袋子不可使用，玩家正常交互不会触发
+-->
+<Items>
+  <Override>
+    <Item name="" identifier="duffelbag" category="Equipment"
+      tags="mobilecontainer,despawncontainer" fireproof="true" description=""
+      impactsoundtag="impact_soft" scale="0.4">
+      <Deconstruct time="5" />
+      <Sprite texture="Content/Items/Jobgear/MiscJobGear.png" sourcerect="612,398,206,114"
+        origin="0.5,0.56" depth="0.56" />
+      <BrokenSprite texture="Content/Items/Jobgear/MiscJobGear.png" sourcerect="818,398,206,114"
+        origin="0.5,0.56" depth="0.56" maxcondition="80" fadein="true" />
+      <Body width="120" radius="45" density="20" friction="1.0" restitution="0.01" />
+      <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="0,50" handle2="0,50"
+        aimable="false" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnActive" targettype="This" Condition="-0.25" />
+        <StatusEffect type="OnActive" target="This">
+          <conditional hastag="eq dbs_remove" target="this" />
+          <removecontaineditems />
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnActive" target="This">
+          <conditional hastag="eq dbs_drop" target="this" />
+          <DropContainedItems />
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <DropContainedItems />
+          <Remove />
+        </StatusEffect>
+        <!-- 传送特效：完全参照 Protagonist Never Die 的传送事件（同一套粒子 + 三个音效随机播放其一） -->
+        <StatusEffect type="OnUse" target="This" stackable="false">
+          <ParticleEmitter particle="relicbag_teleporter" anglemax="0" particleamount="3"
+            scalemin="0.75" scalemax="0.8" />
+          <Sound file="%ModDir%/Sound/teleport1.ogg" range="3000" selectionmode="Random" />
+          <Sound file="%ModDir%/Sound/teleport2.ogg" range="3000" />
+          <Sound file="%ModDir%/Sound/teleport3.ogg" range="3000" />
+        </StatusEffect>
+      </Holdable>
+      <LightComponent LightColor="1.0,0.0,0.0,1.0" range="50" powerconsumption="0"
+        blinkfrequency="2" IsOn="true" canbeselected="false">
+        <StatusEffect type="OnActive" targettype="This" SoundRange="50000" setvalue="true" />
+      </LightComponent>
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+        <GuiFrame minsize="200,170" maxsize="200,170" relativesize="0.15,0.2" anchor="CenterLeft"
+          pivot="BottomLeft" relativeoffset="0.006,0.17" style="ItemUI" />
+        <TickBox text="label.duffelbagsignal">
+          <StatusEffect type="OnUse" targettype="This" IsOn="false" />
+          <StatusEffect type="OnUse" target="This" Tags="dbs_remove" />
+        </TickBox>
+        <TickBox text="label.duffelbagsignal2">
+          <StatusEffect type="OnUse" targettype="This" IsOn="false" />
+          <StatusEffect type="OnUse" target="This" Tags="dbs_drop" />
+        </TickBox>
+      </CustomInterface>
+      <ItemContainer capacity="20" keepopenwhenequipped="false" movableframe="true">
+        <Containable
+          items="smallitem,mediumitem,mobilecontainer,tool,crate,clothing,diving,deepdiving,provocative,weapon,gun,gunsmith,explosive,coilgunammo,chaingunammo,railgunammo,pulselaserammo,depthchargeammo,turretammosource,harpoonammo"
+          excludeditems="despawncontainer" />
+      </ItemContainer>
+    </Item>
+  </Override>
+</Items>
