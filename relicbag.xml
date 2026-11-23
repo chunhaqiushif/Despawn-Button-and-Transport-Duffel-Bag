@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    遗物袋（Duffel Bag）
-    - 前半部分是「遺物袋補丁」的修改：容量 20，可装几乎所有小/中型物品、工具、武器、弹药、潜水装具等，
-      并排除 despawncontainer（袋子不能套袋子）
-    - Holdable 里新增的 OnUse 状态效果只用来播放传送特效，由 C# 侧调用
-      item.ApplyStatusEffects(ActionType.OnUse, ...) 触发；袋子不可使用，玩家正常交互不会触发
--->
+<!-- 遗物袋（Duffel Bag） -->
 <Items>
   <Override>
     <Item name="" identifier="duffelbag" category="Equipment"
