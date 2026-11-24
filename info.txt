@@ -10,6 +10,9 @@
 
 DLC更新后可能会进行一次适配更新（据说官方会支持C#脚本，会在此时进行调整）
 
+原Mod: Despawn Button [3222992798]
+https://steamcommunity.com/sharedfiles/filedetails/?id=3222992798
+Github: https://github.com/chunhaqiushif/Despawn-Button-and-Transport-Duffel-Bag
 ----------------------------------------------
 
 Despawn Button and Transport Duffel Bag (C#)
@@ -23,3 +26,7 @@ In addition to the "Despawn Button" that removes corpses, the following features
 3. Monster Corpse Handling: Monsters will not spawn duffel bags upon death. However, removing their corpses via the "Despawn Button" will generate a duffel bag.
 
 An update to ensure compatibility may follow the DLC release (it is rumored that the developers will add support for C# scripting, and adjustments will be made at that time).
+
+Origin mod: Despawn Button [3222992798]
+https://steamcommunity.com/sharedfiles/filedetails/?id=3222992798
+Github: https://github.com/chunhaqiushif/Despawn-Button-and-Transport-Duffel-Bag
